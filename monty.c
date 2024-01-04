@@ -1,5 +1,4 @@
 #include "monty.h"
-int gbl_value = 0;
 /**
  * main - Main function to interpret Monty byte codes.
  * @argc: Argument count.
@@ -8,7 +7,7 @@ int gbl_value = 0;
 int main(int argc, char *argv[])
 {
     FILE *file;
-    char *line = NULL, *opcode, *n_str;
+    char *line = NULL, *opcode;
     size_t len = 0;
     ssize_t read;
     unsigned int line_number = 0;
@@ -35,15 +34,12 @@ int main(int argc, char *argv[])
         {
             if (strcmp(opcode, "push") == 0)
             {
-                n_str = strtok(NULL, " \n\t\r");
-                if (n_str == NULL || isdigit(*n_str) == 0)
-                {
-                    fprintf(stderr, "L%d: usage: push integer\n", line_number);
-                    exit(EXIT_FAILURE);
-                }
-                gbl_value = atoi(n_str);
+                push(&stack, line_number);
             }
-            opcode_handle(opcode, &stack, line_number);
+            else
+            {
+                opcode_handle(opcode, &stack, line_number);
+            }
         }
     }
 

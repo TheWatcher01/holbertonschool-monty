@@ -13,6 +13,16 @@
 void push(stack_t **stack, unsigned int line_number)
 {
     stack_t *new_node;
+    char *n_str;
+    int n;
+
+    n_str = strtok(NULL, " \n\t\r");
+    if (n_str == NULL || isdigit(*n_str) == 0)
+    {
+        fprintf(stderr, "L%d: usage: push integer\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    n = atoi(n_str);
 
     new_node = malloc(sizeof(stack_t));
     if (new_node == NULL)
@@ -21,7 +31,7 @@ void push(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
 
-    new_node->n = gbl_value;
+    new_node->n = n;
     new_node->prev = NULL;
     new_node->next = *stack;
     if (*stack != NULL)
