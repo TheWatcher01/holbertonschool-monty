@@ -14,28 +14,28 @@
 
 void opcode_handle(char *opcode, stack_t **stack, unsigned int line_number)
 {
-    instruction_t instruction[] = {
-        {"push", push},
-        {"pall", pall},
-        {"pint", pint},
-        {"pop", pop},
-        {"swap", swap},
-        {"add", add},
-        {"nop", nop},
-        {NULL, NULL}
-    };
-    int i = 0;
+	instruction_t instruction[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+		{NULL, NULL}
+	};
+	int i = 0;
 
-    while (instruction[i].opcode != NULL)
-    {
-        if (strcmp(opcode, instruction[i].opcode) == 0)
-        {
-            instruction[i].f(stack, line_number);
-            return;
-        }
-        i++;
-    }
+	while (instruction[i].opcode != NULL)
+	{
+		if (strcmp(opcode, instruction[i].opcode) == 0)
+		{
+			instruction[i].f(stack, line_number);
+			return;
+		}
+		i++;
+	}
 
-    fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-    exit(EXIT_FAILURE);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+	exit(EXIT_FAILURE);
 }
