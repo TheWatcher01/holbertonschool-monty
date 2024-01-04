@@ -20,6 +20,7 @@ void opcode_handle(char *opcode, stack_t **stack, unsigned int line_number)
         {"pint", pint},
         {"pop", pop},
         {"swap", swap},
+        {"add", add},
         /* Add more opcodes here */
         {NULL, NULL}
     };
