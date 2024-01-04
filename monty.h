@@ -53,9 +53,13 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 void opcode_handle(char *opcode, stack_t **stack, unsigned int line_number);
-void free_stack(stack_t *stack);
 
+
+/* ____________________ Auxiliar Functions Prototypes_____________________ */
+
+void free_stack(stack_t *stack);
 void process_lines(FILE *file, stack_t **stack);
 FILE *open_file(char *filename);
 void check_args(int argc);
