@@ -63,5 +63,6 @@ void free_stack(stack_t *stack);
 void process_lines(FILE *file, stack_t **stack);
 FILE *open_file(char *filename);
 void check_args(int argc);
+int check_if_number(char *str);
 
 #endif /* MONTY_H */
