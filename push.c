@@ -4,9 +4,10 @@
  * push - Adds a new_node element to the stack.
  * @stack: Double pointer to the top of the stack.
  * @line_number: The number to be added to the stack.
- * 
- * This function creates a new_node stack element and adds it to the top of the stack.
- * If memory allocation fails, it prints an error message and exits with status EXIT_FAILURE.
+ *
+ * Function creates new_node stack element and adds it to the top of the stack
+ * If memory allocation fails, it prints error message and exits with
+ * status EXIT_FAILURE.
  */
 
 void push(stack_t **stack, unsigned int line_number)

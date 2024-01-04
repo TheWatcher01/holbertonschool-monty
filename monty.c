@@ -1,18 +1,10 @@
 #include "monty.h"
 int gbl_value = 0;
-
 /**
  * main - Main function to interpret Monty byte codes.
- *
  * @argc: Argument count.
  * @argv: Argument vector.
- *
- * Function opens Monty byte code file, reads each line,
- * and executes opcode on each line.
- * If file cannot be opened, or if unknown instruction is encountered,
- * it prints error message and exits with status EXIT_FAILURE.
  */
-
 int main(int argc, char *argv[])
 {
     FILE *file;
