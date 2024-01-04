@@ -5,12 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <ctype.h>
 
-/* ____________________ Functions Prototypes_____________________ */
+/* ____________________ Globale Variables_____________________ */
 
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void opcode_handle(char *opcode, stack_t **stack, unsigned int line_number);
+extern int gbl_value;
+
 
 /* ____________________ Structures Prototypes_____________________ */
 
@@ -43,5 +43,14 @@ typedef struct instruction_s
     char *opcode;
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+
+/* ____________________ Functions Prototypes_____________________ */
+
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void opcode_handle(char *opcode, stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *stack);
 
 #endif /* MONTY_H */
